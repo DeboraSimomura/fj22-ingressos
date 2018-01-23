@@ -24,19 +24,21 @@ public class SessaoController {
 
 	@Autowired
 	private FilmeDao filmeDao;
+	@Autowired
+	private SessaoDao sessaoDao;
 
-	@PostMapping("value=/admin/sessao")
+	@PostMapping("/admin/sessao")
 	@Transactional
 	public ModelAndView salva(@Valid SessaoForm form, BindingResult result) {
 		if (result.hasErrors())
 			return form(form.getSalaId(), form);
 		ModelAndView mav = new ModelAndView("redirect:/admin/sala/" + form.getSalaId() + "/sessoes");
 		Sessao sessao = form.toSessao(salaDao, filmeDao);
-		SessaoDao.save(sessao);
+		sessaoDao.save(sessao);
 		return mav;
 	}
 
-	@GetMapping("/admin/sessao")
+	@GetMapping("/admin/sessao")	
 	public ModelAndView form(@RequestParam("salaId") Integer salaId, SessaoForm form) {
 		form.setSalaId(salaId);
 		ModelAndView mav = new ModelAndView("sessao/sessao");
