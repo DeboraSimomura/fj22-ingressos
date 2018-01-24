@@ -8,9 +8,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import br.com.caelum.ingresso.dao.FilmeDao;
 import br.com.caelum.ingresso.dao.SalaDao;
-import br.com.caelum.ingresso.model.Filme;
-import br.com.caelum.ingresso.model.Sala;
-import br.com.caelum.ingresso.model.Sessao;
+import br.com.caelum.ingresso.modelo.Filme;
+import br.com.caelum.ingresso.modelo.Sala;
+import br.com.caelum.ingresso.modelo.Sessao;
 
 public class SessaoForm {
 	

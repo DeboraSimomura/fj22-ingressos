@@ -7,9 +7,9 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.caelum.ingresso.model.Filme;
-import br.com.caelum.ingresso.model.Sala;
-import br.com.caelum.ingresso.model.Sessao;
+import br.com.caelum.ingresso.modelo.Filme;
+import br.com.caelum.ingresso.modelo.Sala;
+import br.com.caelum.ingresso.modelo.Sessao;
 
 @Repository
 public class SessaoDao {
@@ -18,6 +18,10 @@ public class SessaoDao {
 
 	public void save(Sessao sessao) {
 		manager.persist(sessao);
+	}
+	
+	public Sessao findOne(Integer id){
+		return manager.find(Sessao.class, id);
 	}
 
 	public List<Sessao> buscaSessoesDaSala(Sala sala) {

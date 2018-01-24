@@ -1,4 +1,4 @@
-package br.com.caelum.ingresso.model;
+package br.com.caelum.ingresso.modelo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -10,7 +10,7 @@ public class DetalhesDoFilme {
 	@JsonProperty("Poster")
 	private String imagem;
 	@JsonProperty("Director")
-	private String diretor;
+	private String diretores;
 	@JsonProperty("Writer")
 	private String escritores;
 	@JsonProperty("Actors")
@@ -37,11 +37,12 @@ public class DetalhesDoFilme {
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
 	}
-	public String getDiretor() {
-		return diretor;
+
+	public String getDiretores() {
+		return diretores;
 	}
-	public void setDiretor(String diretor) {
-		this.diretor = diretor;
+	public void setDiretores(String diretores) {
+		this.diretores = diretores;
 	}
 	public String getEscritores() {
 		return escritores;

@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import br.com.caelum.ingresso.model.Sessao;
+import br.com.caelum.ingresso.modelo.Sessao;
 
 public class GerenciadorDeSessao {
 	private List<Sessao> sessoesDaSala;
