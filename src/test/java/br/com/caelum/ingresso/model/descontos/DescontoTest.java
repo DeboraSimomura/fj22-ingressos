@@ -9,17 +9,20 @@ import org.junit.Test;
 
 import br.com.caelum.ingresso.modelo.Filme;
 import br.com.caelum.ingresso.modelo.Ingresso;
+import br.com.caelum.ingresso.modelo.Lugar;
 import br.com.caelum.ingresso.modelo.Sala;
 import br.com.caelum.ingresso.modelo.Sessao;
+import br.com.caelum.ingresso.modelo.TipoDeIngresso;
 
 public class DescontoTest {
 
 	@Test
 	public void naoDeveConcederDescontoParaIngressoNormal() {
+		Lugar lugar=new Lugar("A",1);
 		Sala sala = new Sala("Eldorado - IMAX", new BigDecimal("20.5"));
 		Filme filme = new Filme("Rogue One", Duration.ofMinutes(120), "SCI-FI", new BigDecimal("12"));
 		Sessao sessao = new Sessao(LocalTime.parse("10:00:00"), filme, sala);
-		Ingresso ingresso = new Ingresso(sessao, new SemDesconto());
+		Ingresso ingresso = new Ingresso(sessao, TipoDeIngresso.INTEIRO,lugar);
 
 		BigDecimal precoEsperado = new BigDecimal("32.5");
 

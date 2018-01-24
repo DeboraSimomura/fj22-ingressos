@@ -20,6 +20,7 @@ import br.com.caelum.ingresso.dao.SessaoDao;
 import br.com.caelum.ingresso.model.form.SessaoForm;
 import br.com.caelum.ingresso.modelo.ImagemCapa;
 import br.com.caelum.ingresso.modelo.Sessao;
+import br.com.caelum.ingresso.modelo.TipoDeIngresso;
 import br.com.caelum.ingresso.rest.ImdbClient;
 
 @Controller
@@ -50,10 +51,12 @@ public class SessaoController {
 		ModelAndView mav = new ModelAndView("sessao/lugares");
 		
 		Sessao sessao= sessaoDao.findOne(sessaoId);
+		
 		Optional<ImagemCapa> imagemCapa= client.request(sessao.getFilme(), ImagemCapa.class);
 		
 		mav.addObject("sessao", sessao);
 		mav.addObject("imagemCapa", imagemCapa.orElse(new ImagemCapa()));
+		mav.addObject("tiposDeIngressos", TipoDeIngresso.values());
 		return mav;
 	}
 
